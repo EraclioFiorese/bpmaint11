@@ -28,7 +28,9 @@ sap.ui.define([
                 });
             this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
             this.setModel(oViewModel, "objectView");
-        },
+                // Carrega tipo 
+            this.carregaTipo();
+         },
         /* =========================================================== */
         /* event handlers                                              */
         /* =========================================================== */
@@ -109,6 +111,23 @@ sap.ui.define([
                     oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
                 oViewModel.setProperty("/shareSendEmailMessage",
                     oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
+        },
+        carregaTipo: function () {
+            let cbTipo = this.byId("cbTipo");
+            cbTipo.addItem(new sap.ui.core.Item({
+                key: 1,
+                text: this.getResourceBundle().getText("txtOrganization")
+            }));
+            cbTipo.addItem(new sap.ui.core.Item({
+                key: 2,
+                text: this.getResourceBundle().getText("txtPerson")
+            }));
+        },
+        _changeEditStatus: function () {
+            let oViewModel = this.getModel("objectView");
+            let bEdit = oViewModel.getProperty("/edit");
+            
+            oViewModel.setProperty("/edit", !bEdit);
         }
     });
 

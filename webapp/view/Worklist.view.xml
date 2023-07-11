@@ -65,6 +65,10 @@
                     <Column>
                         <Text text="{i18n>tableNameColumnRegion}" />
                     </Column>
+                    <Column>
+                        <Text text="{i18n>tableNameColumnCountry}" />
+                    </Column>
+                    
                     <!-- <Column id="nameColumn">
                         <Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
                     </Column>
@@ -83,6 +87,7 @@
                             <!-- <Text text="{PartnerType}" /> -->
                             <Text text="{path: 'PartnerType', formatter: '.formatter.formatPartnerType'}" />
                             <Text text="{Region}" />
+                            <Text text="{Country}" />
                             <!--ObjectNumber /-->
                         <!-- <cells>
                             <ObjectIdentifier
